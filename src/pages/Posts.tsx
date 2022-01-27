@@ -1,4 +1,4 @@
-import { Box, Button, Checkbox, CircularProgress, Container, Pagination, } from "@mui/material"
+import { Box, Button, Checkbox, CircularProgress, Container, Pagination, Typography } from '@mui/material';
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../components/hooks/TypedUseSelectorHook";
@@ -10,7 +10,7 @@ import { getPageCount } from "../components/utils/pagination";
 import { fetchPosts } from "../store/reducers/action-creators/post";
 
 function Pages() {
-    const posts = useTypedSelector(state => state.posts)
+    const { posts, error, loading, totalCount } = useTypedSelector(state => state.posts)
     const dispatch = useDispatch()
 
     const [modal, setModal] = useState<boolean>(false);
@@ -32,18 +32,21 @@ function Pages() {
 
             <Button onClick={() => setModal(true)} variant="contained" sx={{ mt: "16px" }}>Create a post</Button>
 
-            {posts.error && <Box>{posts.error}</Box>}
-            {posts.loading
-                ? <Box><CircularProgress /></Box>
+            {error && <Box>{error}</Box>}
+            {loading
+                ? <Box sx={{ display: "flex" }}> <CircularProgress sx={{ justifyContent: "center" }} /></Box>
                 : <PostList />
             }
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Pagination
-                    size="large"
-                    onChange={(_, page) => setPage(page)}
-                    count={getPageCount(posts.totalCount, limit)}
-                />
-            </Box>
+            {!!posts.length || <Typography variant="h4" sx={{ display: "flex", justifyContent: "center" }}>Create your first post</Typography>}
+            {!!posts.length &&
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                    <Pagination
+                        size="large"
+                        onChange={(_, page) => setPage(page)}
+                        count={getPageCount(totalCount, limit)}
+                    />
+                </Box>
+            }
         </Container>
     );
 }

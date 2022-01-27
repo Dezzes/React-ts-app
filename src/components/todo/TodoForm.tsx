@@ -38,7 +38,6 @@ const TodoForm = () => {
             <Button
                 sx={{ minWidth: "64px", mt: "15px", maxWidth: "fit-content" }}
                 variant="contained"
-                color="success"
                 onClick={(e) => addNewTodo(e)}
             >
                 Add todo
