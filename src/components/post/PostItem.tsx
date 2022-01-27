@@ -1,7 +1,7 @@
 import { Button, Card, CardActions, CardContent, Typography, SxProps, Theme } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { Post } from '../types/post';
-import { removePostAction } from '../store/reducers/action-creators/post';
+import { removePostAction } from '../../store/reducers/action-creators/post';
+import { Post } from '../../types/post';
 
 interface Props {
 	post: Post
@@ -29,7 +29,7 @@ const PostItem: React.FC<Props> = ({ post, index }) => {
 	function removePost(post: Post) {
 		dispatch(removePostAction(post))
 	}
-
+	console.log("render Posts");
 	return (
 		<Card sx={styles.CardStyle}>
 			<CardContent>

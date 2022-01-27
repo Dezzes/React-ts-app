@@ -1,9 +1,8 @@
 import { TextField, Button, FormControl } from '@mui/material';
-import { padding } from '@mui/system';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { addNewPostAction } from '../store/reducers/action-creators/post';
-import { Post } from '../types/post';
+import { addNewPostAction } from '../../store/reducers/action-creators/post';
+import { Post } from '../../types/post';
 
 interface Props {
 	setModal: React.Dispatch<React.SetStateAction<boolean>>

@@ -1,7 +1,7 @@
 import PostItem from './PostItem'
 import { Box } from '@mui/system';
-import { Post } from '../types/post';
-import { usePosts } from './hooks/usePost';
+import { Post } from '../../types/post';
+import { usePosts } from '../hooks/usePost';
 
 const PostList: React.FC = () => {
 

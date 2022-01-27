@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../components/hooks/TypedUseSelectorHook";
 import ModalForm from "../components/ModalForm";
-import PostFilter from "../components/PostFilter";
-import PostForm from "../components/PostForm";
-import PostList from "../components/PostList";
+import PostFilter from "../components/post/PostFilter";
+import PostForm from "../components/post/PostForm";
+import PostList from "../components/post/PostList";
 import { getPageCount } from "../components/utils/pagination";
 import { fetchPosts } from "../store/reducers/action-creators/post";
 

@@ -2,7 +2,6 @@ import { Post, PostActionTypes } from './../../../types/post';
 import { PostAction } from '../../../types/post';
 import { Dispatch } from 'redux';
 import axios from 'axios';
-import { PaginationActionType } from '../../../types/pagination';
 
 export const addNewPostAction = (payload: Post) => {
     return {type: PostActionTypes.ADD_POST, payload}

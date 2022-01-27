@@ -2,9 +2,9 @@ import { Box } from '@mui/system';
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import SortSelect from './SortSelect';
-import { useTypedSelector } from './hooks/TypedUseSelectorHook';
-import { filterPostsWithInput, filterPostsWithSelect } from '../store/reducers/action-creators/filter';
 import { TextField } from '@mui/material';
+import { filterPostsWithInput, filterPostsWithSelect } from '../../store/reducers/action-creators/filter';
+import { useTypedSelector } from '../hooks/TypedUseSelectorHook';
 
 const PostFilter: React.FC = () => {
 	const { sort } = useTypedSelector(state => state.filter)

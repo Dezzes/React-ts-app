@@ -1,7 +1,23 @@
+import TodoList from '../components/todo/TodoList';
+import { Container } from '@mui/material';
+import { useEffect } from 'react';
+import { fetchTodo } from '../store/reducers/action-creators/todo';
+import { useDispatch } from 'react-redux';
+import TodoForm from '../components/todo/TodoForm';
 
 const Todos = () => {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(fetchTodo())
+    }, [])
+
     return (
-        <h1>still in progress</h1>
+        <Container>
+            <TodoForm />
+            <TodoList />
+        </Container>
+
     );
 };
 
