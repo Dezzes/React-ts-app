@@ -1,49 +1,50 @@
-import { ListItem, FormControlLabel, ListItemButton, ListItemText, Switch, Button, SxProps, Theme } from '@mui/material';
+import { CardContent, FormControlLabel, Switch, Button, SxProps, Theme, Card, CardActions, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import React from 'react';
 import { Todo } from '../../types/todo';
 import { useDispatch } from 'react-redux';
 import { updateTodoAction, deleteTodoAction } from '../../store/reducers/action-creators/todo';
 
-
 interface Props {
     todo: Todo,
 }
 
 const TodoItem: React.FC<Props> = React.memo(({ todo }) => {
-    const labelId = `checkbox-list-secondary-label-${todo.id}`;
     const dispatch = useDispatch()
 
     const styles: Record<string, SxProps<Theme>> = {
 
-        ListItemStyle: {
+        CardStyle: {
             marginTop: "15px",
-        },
-        ButtonStyle: {
-            marginLeft: "10px",
-            flexShrink: 0,
+            display: "flex",
+            flexDirection: { xs: 'column', sm: "row" },
+            justifyContent: "space-between",
+            alignItems: "space-between"
         },
 
-        FormControlLabelStyle: {
-            width: "150px",
+        CardActionsStyle: {
+            display: "flex",
             flexShrink: 0,
-        }
+            justifyContent: "space-between"
+        },
+
+
     }
 
     return (
-        <ListItem disablePadding sx={styles.ListItemStyle}>
-            <Button sx={styles.ButtonStyle} onClick={() => dispatch(deleteTodoAction(todo.id))} size='small' variant="contained" color="error" startIcon={<DeleteIcon />}>
-                Delete
-            </Button>
-            <ListItemButton sx={styles.ListItemButtonStyle}>
-                <ListItemText id={labelId} primary={todo.title} />
-            </ListItemButton>
-            <FormControlLabel
-                sx={styles.FormControlLabelStyle}
-                control={<Switch name={`Todo${todo.id}`} checked={todo.completed} onChange={() => dispatch(updateTodoAction(todo.id))} />}
-                label={todo.completed ? "Finished" : "In progress"}
-            />
-        </ListItem>
+        <Card sx={styles.CardStyle}>
+            <CardContent sx={styles.CardContentStyle}>
+                <Typography variant='h6'>{todo.id}. {todo.title}</Typography>
+            </CardContent>
+            <CardActions sx={styles.CardActionsStyle}>
+                <FormControlLabel
+                    sx={styles.FormControlLabelStyle}
+                    control={<Switch name={`Todo${todo.id}`} checked={todo.completed} onChange={() => dispatch(updateTodoAction(todo.id))} />}
+                    label={todo.completed ? "Finished" : "In progress"}
+                />
+                <Button sx={styles.ButtonStyle} onClick={() => dispatch(deleteTodoAction(todo.id))} size='small' variant="contained" color="error"><DeleteIcon fontSize='small' /></Button>
+            </CardActions>
+        </Card>
     );
 });
 

@@ -5,9 +5,12 @@ import { useTypedSelector } from "../components/hooks/TypedUseSelectorHook";
 import ModalForm from "../components/ModalForm";
 import PostFilter from "../components/post/PostFilter";
 import PostForm from "../components/post/PostForm";
-import PostList from "../components/post/PostList";
 import { getPageCount } from "../components/utils/pagination";
 import { fetchPosts } from "../store/reducers/action-creators/post";
+import ItemList from '../components/ItemList';
+import { Post } from '../types/post';
+import { usePosts } from '../components/hooks/usePost';
+import PostItem from '../components/post/PostItem';
 
 function Pages() {
     const { posts, error, loading, totalCount } = useTypedSelector(state => state.posts)
@@ -17,6 +20,7 @@ function Pages() {
     const [page, setPage] = useState<number>(1)
     const [limit, setlimit] = useState(10)
 
+    const searchedAndSortedPost = usePosts()
 
     useEffect(() => {
         dispatch(fetchPosts(page, limit))
@@ -24,19 +28,24 @@ function Pages() {
 
     return (
         <Container>
-            <ModalForm isOpen={modal} setModal={setModal}>
+            <ModalForm isOpen={modal} setModal={setModal} title={"Create post"}>
                 <PostForm setModal={setModal} />
             </ModalForm>
 
             <PostFilter />
 
-            <Button onClick={() => setModal(true)} variant="contained" sx={{ mt: "16px" }}>Create a post</Button>
+            <Button onClick={() => setModal(true)} variant="contained" sx={{ mt: "16px" }}>Create post</Button>
 
             {error && <Box>{error}</Box>}
+
             {loading
                 ? <Box sx={{ display: "flex" }}> <CircularProgress sx={{ justifyContent: "center" }} /></Box>
-                : <PostList />
+                // : <PostList />
+                : <ItemList items={searchedAndSortedPost} renderItem={(post: Post) => (
+                    <PostItem key={post.id} post={post} />
+                )} />
             }
+
             {!!posts.length || <Typography variant="h4" sx={{ display: "flex", justifyContent: "center" }}>Create your first post</Typography>}
             {!!posts.length &&
                 <Box sx={{ display: "flex", justifyContent: "center" }}>

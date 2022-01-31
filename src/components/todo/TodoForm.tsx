@@ -4,7 +4,11 @@ import { FormControl, TextField, Button } from '@mui/material';
 import { useState } from 'react';
 import { addNewTodoAction } from '../../store/reducers/action-creators/todo';
 
-const TodoForm = () => {
+interface Props {
+    setModal: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const TodoForm: React.FC<Props> = ({ setModal }) => {
     const _ = require("lodash")
     const dispatch = useDispatch()
 
@@ -21,6 +25,7 @@ const TodoForm = () => {
         }
         dispatch(addNewTodoAction(newTodo))
         setTodo({ title: "" })
+        setModal(false)
     }
 
     return (

@@ -6,10 +6,11 @@ import CloseIcon from '@mui/icons-material/Close';
 interface Props {
     children: React.ReactNode,
     isOpen: boolean,
+    title: string,
     setModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const ModalForm: React.FC<Props> = ({ children, isOpen, setModal }) => {
+const ModalForm: React.FC<Props> = ({ children, isOpen, setModal, title }) => {
 
     const styles = {
         BoxStyle: {
@@ -43,7 +44,7 @@ const ModalForm: React.FC<Props> = ({ children, isOpen, setModal }) => {
             <Box sx={styles.BoxStyle}>
                 <CloseIcon onClick={handleClose} fontSize="large" sx={styles.CloseIconStyle} />
                 <Typography variant='h6'>
-                    Try to create a post
+                    {title}
                 </Typography>
                 {children}
             </Box>

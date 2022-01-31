@@ -1,4 +1,3 @@
-import { PlaylistAddOutlined } from '@mui/icons-material';
 import { TodoAction, TodoActionTypes, TodoState } from './../../types/todo';
 
 const initialState: TodoState = {

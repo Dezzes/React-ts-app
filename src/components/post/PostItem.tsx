@@ -1,14 +1,14 @@
 import { Button, Card, CardActions, CardContent, Typography, SxProps, Theme } from '@mui/material';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removePostAction } from '../../store/reducers/action-creators/post';
 import { Post } from '../../types/post';
 
 interface Props {
 	post: Post
-	index: number
 }
 
-const PostItem: React.FC<Props> = ({ post, index }) => {
+const PostItem: React.FC<Props> = React.memo(({ post }) => {
 
 	const styles: Record<string, SxProps<Theme>> = {
 		CardStyle: {
@@ -29,12 +29,12 @@ const PostItem: React.FC<Props> = ({ post, index }) => {
 	function removePost(post: Post) {
 		dispatch(removePostAction(post))
 	}
-	console.log("render Posts");
+
 	return (
 		<Card sx={styles.CardStyle}>
 			<CardContent>
 				<Typography variant='h6'>
-					{index}. {post.title}
+					{post.id}. {post.title}
 				</Typography>
 				<Typography>
 					{post.body}
@@ -45,6 +45,6 @@ const PostItem: React.FC<Props> = ({ post, index }) => {
 			</CardActions>
 		</Card>
 	)
-}
+})
 
 export default PostItem
