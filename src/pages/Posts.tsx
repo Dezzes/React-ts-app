@@ -2,13 +2,13 @@ import { Box, Button, Checkbox, CircularProgress, Container, Pagination, Typogra
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../components/hooks/TypedUseSelectorHook";
-import ModalForm from "../components/ModalForm";
+import ModalForm from "../components/Modal/Modal";
 import PostFilter from "../components/post/PostFilter";
 import PostForm from "../components/post/PostForm";
 import { getPageCount } from "../components/utils/pagination";
 import { fetchPosts } from "../store/reducers/action-creators/post";
 import ItemList from '../components/ItemList';
-import { Post } from '../types/post';
+import { Post } from '../store/reducers/Post/types';
 import { usePosts } from '../components/hooks/usePost';
 import PostItem from '../components/post/PostItem';
 

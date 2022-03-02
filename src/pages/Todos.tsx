@@ -4,10 +4,10 @@ import { fetchTodo } from '../store/reducers/action-creators/todo';
 import { useDispatch } from 'react-redux';
 import TodoForm from '../components/todo/TodoForm';
 import { useTypedSelector } from '../components/hooks/TypedUseSelectorHook';
-import ModalForm from '../components/ModalForm';
 import ItemList from '../components/ItemList';
 import TodoItem from '../components/todo/TodoItem';
-import { Todo } from '../types/todo';
+import { Todo } from '../store/reducers/todo/types';
+import Modal from '../components/Modal/Modal';
 
 const Todos = () => {
     const { todos, error, loading } = useTypedSelector(state => state.todo)
@@ -21,9 +21,9 @@ const Todos = () => {
 
     return (
         <Container>
-            <ModalForm isOpen={modal} setModal={setModal} title={"Create todo"}>
+            <Modal isOpen={modal} setModal={setModal} title={"Create todo"}>
                 <TodoForm setModal={setModal} />
-            </ModalForm>
+            </Modal>
             <Button onClick={() => setModal(true)} variant="contained" sx={{ mt: "16px" }}>Create todo</Button>
             {error && <Box>{error}</Box>}
             {loading

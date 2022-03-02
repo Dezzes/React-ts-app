@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-import PostItem from './post/PostItem';
 
 interface Props<T> {
     items: T[],

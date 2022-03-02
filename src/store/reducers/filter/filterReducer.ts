@@ -1,4 +1,4 @@
-import { FilterState, FilterAction, FilterActionTypes } from '../../types/filter';
+import { FilterState, FilterAction, FilterActionTypes } from './types';
 
 const initialState: FilterState = {
     sort: "",

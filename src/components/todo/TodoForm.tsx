@@ -1,4 +1,4 @@
-import { Todo } from '../../types/todo';
+import { Todo } from '../../store/reducers/todo/types';
 import { useDispatch } from 'react-redux';
 import { FormControl, TextField, Button } from '@mui/material';
 import { useState } from 'react';

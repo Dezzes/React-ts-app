@@ -2,13 +2,13 @@ import { TextField, Button, FormControl } from '@mui/material';
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { addNewPostAction } from '../../store/reducers/action-creators/post';
-import { Post } from '../../types/post';
+import { Post } from '../../store/reducers/Post/types';
 
-interface Props {
+interface PostFormProps {
 	setModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const PostForm: React.FC<Props> = ({ setModal }) => {
+const PostForm: React.FC<PostFormProps> = ({ setModal }) => {
 	const _ = require("lodash")
 
 	const [post, setPost] = useState({ title: "", body: "" })
@@ -31,7 +31,7 @@ const PostForm: React.FC<Props> = ({ setModal }) => {
 		<FormControl fullWidth margin='normal'>
 			<TextField
 				margin='normal'
-				id="outlined-basic"
+				id="title"
 				label="Post title"
 				variant="outlined"
 				fullWidth
@@ -41,7 +41,7 @@ const PostForm: React.FC<Props> = ({ setModal }) => {
 			/>
 			<TextField
 				margin='normal'
-				id="outlined-basic"
+				id="body"
 				label="Post description"
 				variant="outlined"
 				sx={{ background: "white" }}

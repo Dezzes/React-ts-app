@@ -1,5 +1,5 @@
-import { Post, PostActionTypes } from './../../../types/post';
-import { PostAction } from '../../../types/post';
+import { Post, PostActionTypes } from '../Post/types';
+import { PostAction } from '../Post/types';
 import { Dispatch } from 'redux';
 import axios from 'axios';
 

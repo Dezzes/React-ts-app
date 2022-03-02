@@ -2,13 +2,13 @@ import { Button, Card, CardActions, CardContent, Typography, SxProps, Theme } fr
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removePostAction } from '../../store/reducers/action-creators/post';
-import { Post } from '../../types/post';
+import { Post } from '../../store/reducers/Post/types';
 
-interface Props {
+interface PostItemProps {
 	post: Post
 }
 
-const PostItem: React.FC<Props> = React.memo(({ post }) => {
+const PostItem: React.FC<PostItemProps> = React.memo(({ post }) => {
 
 	const styles: Record<string, SxProps<Theme>> = {
 		CardStyle: {

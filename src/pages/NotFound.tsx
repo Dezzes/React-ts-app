@@ -1,6 +1,5 @@
 import { Typography, Container } from '@mui/material';
-import React from 'react';
-import { Box } from '@mui/system';
+
 
 const NotFound = () => {
     return (

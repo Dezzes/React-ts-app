@@ -1,7 +1,7 @@
 import { CardContent, FormControlLabel, Switch, Button, SxProps, Theme, Card, CardActions, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import React from 'react';
-import { Todo } from '../../types/todo';
+import { Todo } from '../../store/reducers/todo/types';
 import { useDispatch } from 'react-redux';
 import { updateTodoAction, deleteTodoAction } from '../../store/reducers/action-creators/todo';
 

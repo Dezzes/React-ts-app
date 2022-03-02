@@ -1,6 +1,6 @@
 import axios from "axios"
 import { Dispatch } from "react"
-import { TodoAction, TodoActionTypes, Todo } from '../../../types/todo';
+import { TodoAction, TodoActionTypes, Todo } from '../todo/types';
 
 export const fetchTodo = (page = 1, limit = 10) => {
     return async (dispatch: Dispatch<TodoAction>) => {
@@ -21,7 +21,5 @@ export const fetchTodo = (page = 1, limit = 10) => {
 }
 
 export const updateTodoAction = (payload: number) => ({type: TodoActionTypes.UPDATE_TODO, payload})
-
 export const deleteTodoAction = (payload: number) => ({type: TodoActionTypes.DELETE_TODO, payload})
-
 export const addNewTodoAction = (payload: Todo) => ({type: TodoActionTypes.ADD_TODO, payload})

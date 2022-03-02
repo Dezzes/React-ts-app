@@ -1,13 +1,12 @@
 import { useMemo } from "react";
 import { useTypedSelector } from './TypedUseSelectorHook';
-import { Post } from "../../types/post";
-import {PostFilter} from '../../types/post';
+import { Post } from "../../store/reducers/Post/types";
+import {PostFilter} from '../../store/reducers/Post/types';
 
 
 export const useSortedPosts = (posts: Post[], sort: keyof PostFilter | "") => {
     const sortedPosts = useMemo(() => {
         if(sort) {
-            console.log([...posts].sort((a,b) => a[sort].localeCompare(b[sort])))
             return [...posts].sort((a,b) => a[sort].localeCompare(b[sort]))
         } 
         return posts

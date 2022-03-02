@@ -1,4 +1,4 @@
-import { PostFilter } from './post';
+import { PostFilter } from '../Post/types';
 
 export interface FilterState {
     sort: keyof PostFilter | "",

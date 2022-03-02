@@ -7,6 +7,7 @@ import { filterPostsWithInput, filterPostsWithSelect } from '../../store/reducer
 import { useTypedSelector } from '../hooks/TypedUseSelectorHook';
 
 const PostFilter: React.FC = () => {
+
 	const { sort } = useTypedSelector(state => state.filter)
 	const dispatch = useDispatch()
 
