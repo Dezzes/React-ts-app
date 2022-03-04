@@ -6,13 +6,13 @@ interface Options {
 	value: string
 }
 
-interface Props {
+interface SortSelectProps {
 	options: Options[],
 	value: string,
 	onChange: (e: string) => void
 }
 
-const SortSelect: React.FC<Props> = ({ options, onChange, value }) => {
+const SortSelect: React.FC<SortSelectProps> = ({ options, onChange, value }) => {
 
 	const styles = {
 		FormControlStyle: {

@@ -40,7 +40,6 @@ function Pages() {
 
             {loading
                 ? <Box sx={{ display: "flex" }}> <CircularProgress sx={{ justifyContent: "center" }} /></Box>
-                // : <PostList />
                 : <ItemList items={searchedAndSortedPost} renderItem={(post: Post) => (
                     <PostItem key={post.id} post={post} />
                 )} />

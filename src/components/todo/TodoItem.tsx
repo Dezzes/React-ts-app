@@ -5,11 +5,11 @@ import { Todo } from '../../store/reducers/todo/types';
 import { useDispatch } from 'react-redux';
 import { updateTodoAction, deleteTodoAction } from '../../store/reducers/action-creators/todo';
 
-interface Props {
+interface TodoItemProps {
     todo: Todo,
 }
 
-const TodoItem: React.FC<Props> = React.memo(({ todo }) => {
+const TodoItem: React.FC<TodoItemProps> = React.memo(({ todo }) => {
     const dispatch = useDispatch()
 
     const styles: Record<string, SxProps<Theme>> = {
