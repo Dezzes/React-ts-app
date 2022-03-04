@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.10be66c9.css","mappings":"AAAA,MACC,wBACD,CAEA,EACC,qBACD,CAEA,EACC,UAAY,CACZ,oBACD","sources":["App.css"],"sourcesContent":[":root {\r\n\tbackground-color: rgb(231, 235, 240);\r\n}\r\n\r\n* {\r\n\tbox-sizing: border-box;\r\n}\r\n\r\na {\r\n\tcolor: white;\r\n\ttext-decoration: none;\r\n}\r\n"],"names":[],"sourceRoot":""}
