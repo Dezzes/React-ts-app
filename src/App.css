@@ -1,12 +1,13 @@
 :root {
-	background-color: rgb(231, 235, 240);
+    background-color: rgb(231, 235, 240);
+    height: 100vh;
 }
 
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 a {
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
 }

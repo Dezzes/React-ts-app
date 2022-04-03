@@ -47,7 +47,7 @@ function Pages() {
 
             {!!posts.length || <Typography variant="h4" sx={{ display: "flex", justifyContent: "center" }}>Create your first post</Typography>}
             {!!posts.length &&
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px"}}>
                     <Pagination
                         size="large"
                         onChange={(_, page) => setPage(page)}

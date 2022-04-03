@@ -17,8 +17,8 @@ const NavBar: React.FC = () => {
                 <AppBar position="fixed">
                     <Toolbar>
                         <Container>
-                            <Button color="inherit" component={Link} to="/posts">Posts</Button>
-                            <Button color="inherit" component={Link} to="/todos">Todos</Button>
+                            <Button color="inherit" component={Link} to="react-ts-app/posts">Posts</Button>
+                            <Button color="inherit" component={Link} to="react-ts-app/todos">Todos</Button>
                             <Button className={styles.logoutBtn} color="inherit" onClick={() => dispatch(AuthActionCreators.logout())}>Logout</Button>
                         </Container>
                     </Toolbar>

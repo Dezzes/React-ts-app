@@ -1,13 +1,18 @@
 .formCenter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 .form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     min-height: 300px;
     max-width: 420px;
     flex-grow: 1;
@@ -22,4 +27,8 @@
     font-weight: bold;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
+}
+
+.submitBtn {
+    margin-top: 10px;
 }

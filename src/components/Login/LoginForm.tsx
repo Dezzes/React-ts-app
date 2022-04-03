@@ -55,7 +55,7 @@ const LoginForm = () => {
                     value={user.password}
                     onChange={(e) => setUser({ ...user, password: e.target.value })}
                 />
-                <Button type='submit' variant="contained">Войти</Button>
+                <Button type='submit' variant="contained" className={styles.submitBtn}>Войти</Button>
             </Box>
         </Box>
     )
